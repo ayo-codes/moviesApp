@@ -53,6 +53,16 @@ export const getMovieReviews = (id) => {
     });
 };
 
+export const getUpcomingMovies = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+  )
+  .then((res) =>  console.log(res) || res.json())
+  .then(json =>{  
+    console.log(json)
+    console.log(json.results)
+    return  json.results});  
+  };
 // Async example
 // export const getMovies = async () => {
 //   const res = await fetch(
