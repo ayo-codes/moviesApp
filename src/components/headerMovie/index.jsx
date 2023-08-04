@@ -34,7 +34,7 @@ const MovieHeader = (props) => {
   })
   console.log(favourite)
 
-   console.log(test)
+
 
 
 
