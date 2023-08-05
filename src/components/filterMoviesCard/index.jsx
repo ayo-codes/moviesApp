@@ -10,6 +10,8 @@ import SortIcon from '@mui/icons-material/Sort';
 import { getGenres } from "../../api/tmdb-api";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useQuery } from "react-query";
+import Spinner from '../spinner'
 
 const styles = {
   root: {
@@ -26,14 +28,33 @@ const styles = {
 
 export default function FilterMoviesCard(props) {
 
-  const [genres , setGenres] = useState([{ id: '0' , name:"All"}])
+  // -- start -- added for caching 
+  const { data, error, isLoading, isError } = useQuery("genres", getGenres);
 
-  useEffect(() => {
-    getGenres().then((allGenres) => {
-      setGenres([genres[0], ...allGenres]);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+  const genres = data.genres;
+  if (genres[0].name !== "All") {
+    genres.unshift({ id: "0", name: "All" });
+  }
+  // -- end -- added for caching 
+
+
+  // -- start -- removed for caching 
+  // const [genres , setGenres] = useState([{ id: '0' , name:"All"}])
+
+  // useEffect(() => {
+  //   getGenres().then((allGenres) => {
+  //     setGenres([genres[0], ...allGenres]);
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
+  // -- end -- removed for caching
 
 const handleChange = (e, type, value ) => {
   e.preventDefault()

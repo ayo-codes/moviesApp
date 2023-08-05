@@ -4,14 +4,17 @@ import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage"
 import { getMovie } from "../api/tmdb-api";
 import useMovie from "../hooks/useMovie";
+import Spinner from '../components/spinner'
+import { useQuery } from "react-query";
 
 const MovieDetailsPage = (props) => {
   const { id } = useParams();
-  const [ movie ] = useMovie(id);
-
+  //  start -- removed for caching 
+  // const [ movie ] = useMovie(id);
+ //  end -- removed for caching 
   
 
-  //  became a custom hook 
+  // start --  became a custom hook 
   // const [movie, setMovie] = useState(null);
 
   // useEffect(() => {
@@ -19,8 +22,23 @@ const MovieDetailsPage = (props) => {
   //     setMovie(movie);
   //   });
   // }, [id]);
+  // end -- became a custom hook
 
+  //  start -- added for caching 
+  const { data: movie, error, isLoading, isError } = useQuery(
+    ["movie", { id: id }],
+    getMovie
+  );
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+
+  //  end -- removed for caching 
   return (
     <>
       {movie ? (
