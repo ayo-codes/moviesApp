@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageTemplate from '../components/templateMovieListPage';
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import { getUpcomingMovies } from "../api/tmdb-api";
+import  PlaylistAddIcon  from "@mui/icons-material/PlaylistAdd";
 
 
 
@@ -37,7 +38,7 @@ const UpcomingPage = (props) => {
     action={(movie) => 
       {  
         // this is a render prop added 
-      return <AddToFavouritesIcon movie={movie}/> 
+      return <PlaylistAddIcon movie={movie}/> 
     }}
     // selectFavourite={addToFavourites}
      />
