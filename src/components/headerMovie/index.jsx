@@ -26,13 +26,13 @@ const MovieHeader = (props) => {
   const movie = props.movie;
   console.log(movie)
 
-  const favouriteMovies = JSON.parse(localStorage.getItem("favourites"));
-  console.log(favouriteMovies)
+  // const favouriteMovies = JSON.parse(localStorage.getItem("favourites"));
+  // console.log(favouriteMovies)
 
-  let favourite = favouriteMovies.filter((m) => { console.log(movie.id)
-    return movie.id === m.id 
-  })
-  console.log(favourite)
+  // let favourite = favouriteMovies.filter((m) => { console.log(movie.id)
+  //   return movie.id === m.id 
+  // })
+  // console.log(favourite)
 
 
 
@@ -45,13 +45,13 @@ const MovieHeader = (props) => {
       </IconButton>
 
 
-      {
+      {/* {
          (favourite[0]?.id == movie.id) ?  (
           <Avatar sx={styles.avatar}>
             <FavoriteIcon />
           </Avatar>
         ) : null
-      }
+      } */}
       
 
       <Typography variant="h4" component="h3">
