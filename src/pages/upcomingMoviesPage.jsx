@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import PageTemplate from '../components/templateMovieListPage';
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import { getUpcomingMovies } from "../api/tmdb-api";
 
 
 
 const UpcomingPage = (props) => {
+  console.log(props)
   const [movies , setMovies] = useState([]); // sets the movies state and also setter method for movies
-  const favourites = movies.filter(m => m.favourite);
-  localStorage.setItem('favourites', JSON.stringify(favourites))
+  console.log(movies)
+
+  // const favourites = movies.filter(m => m.favourite);
+  // localStorage.setItem('favourites', JSON.stringify(favourites))
 
 
   const addToFavourites = (movieId) => {
@@ -19,7 +23,8 @@ const UpcomingPage = (props) => {
 
 
   useEffect(() => {
-    getUpcomingMovies().then((movies) => {
+    getUpcomingMovies()
+   .then((movies) => {
       setMovies(movies);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,8 +34,13 @@ const UpcomingPage = (props) => {
     <PageTemplate 
     title= 'Upcoming Movies'
     movies={movies}
-    selectFavourite={addToFavourites} 
-   />
+    action={(movie) => 
+      {  
+        // this is a render prop added 
+      return <AddToFavouritesIcon movie={movie}/> 
+    }}
+    // selectFavourite={addToFavourites}
+     />
   );
 };
 
