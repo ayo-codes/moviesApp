@@ -35,6 +35,10 @@ export default function MovieCard(props) {
   } else {
     movie.favourite = false
   }
+
+
+
+
 //-- start removed during icon change 
   // const handleAddToFavourite = (e) => {
   //   e.preventDefault();
