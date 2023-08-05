@@ -3,7 +3,7 @@ import PageTemplate from '../components/templateMovieListPage';
 import { getMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 
 const HomePage = (props) => {
@@ -23,18 +23,19 @@ const HomePage = (props) => {
 
  // new -- ends here
 
-  const favourites = movies.filter(m => m.favourite);
-  localStorage.setItem('favourites', JSON.stringify(favourites))
+ // start -- removed to change icons 
+  // const favourites = movies.filter(m => m.favourite);
+  // localStorage.setItem('favourites', JSON.stringify(favourites))
 
-  const addToFavourites = (movieId) => {
-    const updatedMovies = movies.map((m) => 
-    m.id === movieId ? {...m , favourite:true} : m 
-    );
-    setMovies(updatedMovies)
-  }
-
-
-  // removed during caching 
+  // const addToFavourites = (movieId) => {
+  //   const updatedMovies = movies.map((m) => 
+  //   m.id === movieId ? {...m , favourite:true} : m 
+  //   );
+  //   setMovies(updatedMovies)
+  // }
+ // end -- removed to change icons 
+  
+ // removed during caching 
   // useEffect(() => {
   //   getMovies().then((movies) => {
   //     setMovies(movies);
@@ -46,7 +47,10 @@ const HomePage = (props) => {
     <PageTemplate 
     title= 'Discover Movies'
     movies={movies}
-    selectFavourite={addToFavourites} 
+    action={(movie) => { // this is a render prop 
+      return <AddToFavouritesIcon movie={movie}/>
+    }}
+    // selectFavourite={addToFavourites} // removed during favourite icon change
    />
   );
 };

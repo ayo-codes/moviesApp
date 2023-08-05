@@ -10,7 +10,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
+// import IconButton from "@mui/material/IconButton";
 import img from '../../images/film-poster-placeholder.png' 
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
@@ -26,6 +26,7 @@ const styles = {
 
 export default function MovieCard(props) {
   const movie = props.movie;
+  const action = props.action; // added for icon change
 
   const { favourites, addToFavourites } = useContext(MoviesContext);
 
@@ -34,12 +35,13 @@ export default function MovieCard(props) {
   } else {
     movie.favourite = false
   }
-
-  const handleAddToFavourite = (e) => {
-    e.preventDefault();
-    addToFavourites(movie);
+//-- start removed during icon change 
+  // const handleAddToFavourite = (e) => {
+  //   e.preventDefault();
+  //   addToFavourites(movie);
+// -- end removed during icon change  
     // props.selectFavourite(movie.id); // removed to allow for using contexts
-  }
+  // }
 
   return (
     <Card sx={styles.card}>
@@ -83,9 +85,12 @@ export default function MovieCard(props) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={handleAddToFavourite}>
+        {/* IconButton component removed during add favourite bit and replaced with {action(movie)} */}
+        {/* <IconButton aria-label="add to favorites" onClick={handleAddToFavourite}>
           <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
+        </IconButton> */} 
+        {action(movie)}
+
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...

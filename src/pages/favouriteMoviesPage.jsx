@@ -4,7 +4,8 @@ import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from "../components/spinner"
-
+import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
+import WriteReview from "../components/cardIcons/writeReview";
 const FavouriteMoviesPage = () => {
     const { favourites : movieIds } = useContext(MoviesContext);
 
@@ -26,7 +27,9 @@ const FavouriteMoviesPage = () => {
     }
 
     const movies = favouriteMovieQueries.map((q) => q.data);
-    const toDo = () => true; 
+   
+   
+    // const toDo = () => true;  // removed during the add icon part 
 
 
     // Get movies from local storage. changed and using contexts now
@@ -36,7 +39,15 @@ const FavouriteMoviesPage = () => {
         <PageTemplate 
         title="Favourite Movies"
         movies={movies}
-        selectFavouite={toDo}
+        // selectFavouite={toDo} // removed during the add icon part
+        action={(movie) => {
+            return (
+                <>
+                    <RemoveFromFavourites movie={movie} />
+                    <WriteReview movie={movie} />
+                </>
+            )
+        }}
         />
     );
 };

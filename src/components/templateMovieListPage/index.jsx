@@ -21,7 +21,8 @@ const styles = {
 function MovieListPageTemplate(props){
   let movies = props.movies;
   let title = props.title;
-  let selectFavourite = props.selectFavourite;
+  // let selectFavourite = props.selectFavourite;  // removed during icon change
+  let action = props.action; // added during icon change
 
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
@@ -49,7 +50,8 @@ return (
        <Grid item container spacing={5}>
          <MovieList
            movies={displayedMovies}
-           selectFavourite={selectFavourite}
+          //  selectFavourite={selectFavourite} // removed during icon change
+          action={action}
          />
        </Grid>
      </Grid>
