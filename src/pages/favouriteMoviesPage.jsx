@@ -6,6 +6,8 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from "../components/spinner"
 import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
 import WriteReview from "../components/cardIcons/writeReview";
+
+
 const FavouriteMoviesPage = () => {
     const { favourites : movieIds } = useContext(MoviesContext);
 
