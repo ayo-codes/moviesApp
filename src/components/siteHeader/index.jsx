@@ -16,6 +16,7 @@ const styles = {
   title: {
     flexGrow: 1,
   },
+
 };
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);

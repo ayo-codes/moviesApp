@@ -6,7 +6,7 @@ const MoviesContextProvider = (props) => {
   console.log(props)
   const [favourites , setFavourites] = useState([]);
   const [myReviews, setMyReviews] = useState( {} )  // NEW
-  const [myPlaylistMovies , setPlaylistMovies] = useState([]);
+  const [myPlaylistMovies, setMyPlaylistMovies] = useState([]);
 
   const addToFavourites = (movie) => {
     let updatedFavourites = [...favourites];
@@ -30,10 +30,10 @@ const MoviesContextProvider = (props) => {
     if (!myPlaylistMovies.includes(movie.id)) {
       updatedPlaylists.push(movie.id);
     }
-    console.log(updatedPlaylists);
-    setPlaylistMovies(updatedPlaylists);
-    console.log(updatedPlaylists);
-    console.log(myPlaylistMovies);
+    // console.log(updatedPlaylists);
+    setMyPlaylistMovies(updatedPlaylists);
+    // console.log(updatedPlaylists);
+    // console.log(myPlaylistMovies);
   };
 
   return (
@@ -44,6 +44,7 @@ const MoviesContextProvider = (props) => {
         removeFromFavourites,
         addReview,
         addToPlaylists,
+        myPlaylistMovies
       }}>
         {props.children}
     </MoviesContext.Provider>

@@ -15,6 +15,7 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
+import PlaylistAddCheck  from "@mui/icons-material/PlaylistAddCheckCircle";
 
 const styles = {
   card: { maxWidth: 345 },
@@ -26,16 +27,29 @@ const styles = {
 
 export default function MovieCard(props) {
   const movie = props.movie;
+
   const action = props.action; // added for icon change
 
-  const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { favourites, myPlaylistMovies } = useContext(MoviesContext);
 
+  // console.log(favourites)
+  // console.log(myPlaylistMovies);
+
+  
   if ( favourites.find((id) => id === movie.id)){
     movie.favourite = true;
   } else {
     movie.favourite = false
   }
 
+  if ( myPlaylistMovies.find((id) => id === movie.id)){
+    movie.isinPlaylist = true;
+  } else {
+    movie.isinPlaylist = false
+  }
+
+  // let isInPlaylist = myPlaylistMovies.includes((movie.id));
+  // console.log(isInPlaylist);
 
 
 
@@ -56,8 +70,20 @@ export default function MovieCard(props) {
           <Avatar sx={styles.avatar}>
             <FavoriteIcon />
           </Avatar>
-        ) : null
+        ) : movie.isinPlaylist ? (
+          <Avatar sx={styles.avatar}>
+          <PlaylistAddCheck />
+        </Avatar>
+      ) : null
+      
       }
+      // avatar={
+      //   movie.isinPlaylist ? (
+      //     <Avatar sx={styles.avatar}>
+      //       <FavoriteIcon />
+      //     </Avatar>
+      //   ) : null
+      // }
       title={
         <Typography variant="h5" component="p">
           {movie.title}{" "}
