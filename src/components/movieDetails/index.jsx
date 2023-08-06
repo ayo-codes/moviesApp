@@ -10,6 +10,7 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from '../movieReviews'
+import MovieCastList from "../movieCastList";
 
 const styles = {  
   chipSet: {
@@ -34,8 +35,7 @@ const styles = {
 const MovieDetails = ({movie , moviecast}) => {
   const [drawerOpen , setDrawerOpen ] = useState(false);
 
-  console.log(movie);
-  console.log(moviecast);
+ 
   return (
     <>
       <Typography variant="h5" component="h3">
@@ -78,14 +78,7 @@ const MovieDetails = ({movie , moviecast}) => {
           </li>
         ))}
       </Paper>
-      <Paper> 
-        {moviecast.cast.map((cast) =>
-        (
-          <li key={cast.id}>
-            {cast.name}
-          </li>
-        ))}
-      </Paper>
+        <MovieCastList moviecast={moviecast} />
       <Fab    
         color="secondary"
         variant="extended"
