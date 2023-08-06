@@ -9,7 +9,8 @@ function MovieCastList(props) {
 
   const styles = {
     heading: {
-      display: "flex",
+      align:"center",
+      margin: 3,
     },
     li: {
       listStyle : "none"
@@ -18,7 +19,7 @@ function MovieCastList(props) {
 
   return (
     <>
-      <Typography align='center' variant="h5" component="h3" sx={styles.header}>
+      <Typography align="center" variant="h5" component="h3" sx={styles.heading}>
         Cast Members
       </Typography>
       <Paper align="center" component="ul" sx={styles.li}>

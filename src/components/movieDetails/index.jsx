@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -9,10 +9,10 @@ import Typography from "@mui/material/Typography";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from '../movieReviews'
+import MovieReviews from "../movieReviews";
 import MovieCastList from "../movieCastList";
 
-const styles = {  
+const styles = {
   chipSet: {
     display: "flex",
     justifyContent: "center",
@@ -25,17 +25,16 @@ const styles = {
   chipLabel: {
     margin: 0.5,
   },
-  fab: { 
+  fab: {
     position: "fixed",
     top: 50,
     right: 2,
   },
 };
 
-const MovieDetails = ({movie , moviecast}) => {
-  const [drawerOpen , setDrawerOpen ] = useState(false);
+const MovieDetails = ({ movie, moviecast }) => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
- 
   return (
     <>
       <Typography variant="h5" component="h3">
@@ -52,7 +51,7 @@ const MovieDetails = ({movie , moviecast}) => {
         </li>
         {movie.genres.map((g) => (
           <li key={g.name}>
-            <Chip label={g.name}  />
+            <Chip label={g.name} />
           </li>
         ))}
       </Paper>
@@ -70,29 +69,37 @@ const MovieDetails = ({movie , moviecast}) => {
       </Paper>
       <Paper component="ul" sx={styles.chipSet}>
         <li>
-          <Chip label="Production Countries" sx={styles.chipLabel} color="primary" />
+          <Chip
+            label="Production Countries"
+            sx={styles.chipLabel}
+            color="primary"
+          />
         </li>
         {movie.production_countries.map((p) => (
           <li key={p.name}>
-            <Chip label={p.name}  />
+            <Chip label={p.name} />
           </li>
         ))}
       </Paper>
-        <MovieCastList moviecast={moviecast} />
-      <Fab    
+      <MovieCastList moviecast={moviecast} />
+      <Fab
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
+        onClick={() => setDrawerOpen(true)}
         sx={styles.fab}
       >
         <NavigationIcon />
         Reviews
       </Fab>
 
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer
+        anchor="top"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
         <MovieReviews movie={movie} />
       </Drawer>
-      </>
+    </>
   );
 };
-export default  MovieDetails ;
+export default MovieDetails;
