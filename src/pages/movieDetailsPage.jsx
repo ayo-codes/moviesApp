@@ -30,7 +30,7 @@ const MovieDetailsPage = (props) => {
   //   ["movie", { id: id }],
   //   getMovie
   // );
-  const query = useQueries([
+  const[getMovieQuery, getMovieCastQuery] = useQueries([
     {
       queryKey: ['movie', {id: id}],
       queryFn: getMovie
@@ -41,18 +41,28 @@ const MovieDetailsPage = (props) => {
     },
    ]
    );
-   console.log(query);
 
-   let movie = query[0].data
+   console.log(getMovieQuery);
+   let movie = getMovieQuery.data
 
-  if (query[0].isLoading) {
+  if (getMovieQuery.isLoading) {
     return <Spinner />;
   }
 
-  if (query[0].isError) {
+  if (getMovieQuery.isError) {
     return <h1>{error.message}</h1>;
   }
 
+   console.log(getMovieCastQuery);
+   let movieCast = getMovieCastQuery.data
+
+  if (getMovieCastQuery.isLoading) {
+    return <Spinner />;
+  }
+
+  if (getMovieCastQuery.isError) {
+    return <h1>{error.message}</h1>;
+  }
  //  end -- added for caching 
 
 
@@ -89,7 +99,7 @@ const MovieDetailsPage = (props) => {
       {movie ? (
         <>
          <PageTemplate movie={movie}>
-          <MovieDetails movie={movie} />
+          <MovieDetails movie={movie} moviecast={movieCast} />
          </PageTemplate>
         </>
       ) : (

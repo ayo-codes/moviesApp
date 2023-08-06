@@ -31,9 +31,11 @@ const styles = {
   },
 };
 
-const MovieDetails = ({movie}) => {
+const MovieDetails = ({movie , moviecast}) => {
   const [drawerOpen , setDrawerOpen ] = useState(false);
 
+  console.log(movie);
+  console.log(moviecast);
   return (
     <>
       <Typography variant="h5" component="h3">
@@ -77,7 +79,12 @@ const MovieDetails = ({movie}) => {
         ))}
       </Paper>
       <Paper> 
-        Test
+        {moviecast.cast.map((cast) =>
+        (
+          <li key={cast.id}>
+            {cast.name}
+          </li>
+        ))}
       </Paper>
       <Fab    
         color="secondary"
