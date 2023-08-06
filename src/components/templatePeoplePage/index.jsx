@@ -5,8 +5,8 @@ import ImageListItem from "@mui/material/ImageListItem";
 import {useQuery , useQueries } from "react-query";
 import Spinner from '../spinner'
 import { getCastImages } from '../../api/tmdb-api';
-import { getCardActionAreaUtilityClass } from '@mui/material';
 
+// Styles
 const styles = {
   gridListRoot: {
     display: "flex",
@@ -19,8 +19,10 @@ const styles = {
   },
 };
 
+// Start of Component 
 const TemplatePersonPage = ({person, children}) => {
 
+// useQuery for caching
   const [ getPersonImageQuery  ] = useQueries([
     {
       queryKey: ['person_images', {person_id: person.id}] ,
