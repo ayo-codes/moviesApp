@@ -16,9 +16,6 @@ const [ getPersonDetailQuery  ] = useQueries([
   },
 ])
 
-
-
-
   if (getPersonDetailQuery.isLoading) {
     return <Spinner />;
   }
