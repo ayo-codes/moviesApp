@@ -5,10 +5,11 @@ import PageTemplate from "../components/templateMoviePage"
 import { getMovie, getMovieCast } from "../api/tmdb-api";
 import useMovie from "../hooks/useMovie";
 import Spinner from '../components/spinner'
-import { useQuery } from "react-query";
+import { useQueries, useQuery } from "react-query";
 
 const MovieDetailsPage = (props) => {
   const { id } = useParams();
+  
   //  start -- removed for caching 
   // const [ movie ] = useMovie(id);
  //  end -- removed for caching 
@@ -25,22 +26,65 @@ const MovieDetailsPage = (props) => {
   // end -- became a custom hook
 
   //  start -- added for caching 
-  const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: id }],
-    getMovie
-  );
+  // const { data: movie, error, isLoading, isError } = useQuery(
+  //   ["movie", { id: id }],
+  //   getMovie
+  // );
+  const query = useQueries([
+    {
+      queryKey: ['movie', {id: id}],
+      queryFn: getMovie
+    },
+    {
+      queryKey: ['movieCast', {movie_id: id}],
+      queryFn: getMovieCast
+    },
+   ]
+   );
+   console.log(query);
 
-  if (isLoading) {
+   let movie = query[0].data
+
+  if (query[0].isLoading) {
     return <Spinner />;
   }
 
-  if (isError) {
+  if (query[0].isError) {
     return <h1>{error.message}</h1>;
   }
 
-  
-  //  end -- added for caching 
-  return (
+ //  end -- added for caching 
+
+
+   
+
+    // {
+    //   queryKey: ["movieCast", {id: id}],
+    //   queryFn : getMovieCast
+    // },
+
+ 
+
+//  if (getMovieQuery.isLoading) {
+//     return <Spinner />;
+//   };
+
+//   if (getMovieCastQuery.isLoading) {
+//     return <Spinner />;
+//   };
+
+//     if (getMovieQuery.isError) {
+//     return <h1>{getMovieQuery.error.message}</h1>;
+//   }
+
+//       if (getMovieCastQuery.isError) {
+//     return <h1>{getMovieCastQuery.error.message}</h1>;
+//   }
+
+//   console.log(getMovieCastQuery);
+//   console.log(getMovieQuery);
+
+ return (
     <>
       {movie ? (
         <>

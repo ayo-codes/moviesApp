@@ -49,10 +49,14 @@ export const getMovie = (args) => {
 
 // -- start Get Actors of the movies
 
-export const getMovieCast = (movie_id) => {
+export const getMovieCast = (args) => {
+  console.log(args)
+  const [, idPart] = args.queryKey;
+  const {movie_id} = idPart
   return fetch(
-    `https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US`
   ).then((response) => {
+    console.log(response)
     if (!response.ok){
       throw new Error(response.json().message);
     }
