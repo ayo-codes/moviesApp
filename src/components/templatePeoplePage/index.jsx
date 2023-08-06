@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 
 
 
-const TemplatePersonPage = (children) => {
+const TemplatePersonPage = ({children}) => {
 
 
   return (
     <div>
-      Testing Template Person Page
+      <p> This is Coming from the Template People Page </p>
       {children}
     </div>
-    
+
   )
 }
 

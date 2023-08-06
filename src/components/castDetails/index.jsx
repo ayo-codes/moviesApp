@@ -7,8 +7,8 @@ const CastDetails = () => {
   return (
 
   <>
-  <Typography variant="h5" component="h3">
-        Overview
+  <Typography variant="p" component="p">
+        Overview -This is coming from the return statement of the CastDetails
   </Typography>
   </>
   );
