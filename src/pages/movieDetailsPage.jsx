@@ -2,7 +2,7 @@ import React, {useState , useEffect} from "react";
 import { useParams } from "react-router-dom"
 import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage"
-import { getMovie } from "../api/tmdb-api";
+import { getMovie, getMovieCast } from "../api/tmdb-api";
 import useMovie from "../hooks/useMovie";
 import Spinner from '../components/spinner'
 import { useQuery } from "react-query";
@@ -38,7 +38,8 @@ const MovieDetailsPage = (props) => {
     return <h1>{error.message}</h1>;
   }
 
-  //  end -- removed for caching 
+  
+  //  end -- added for caching 
   return (
     <>
       {movie ? (

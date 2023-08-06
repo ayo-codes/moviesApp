@@ -76,6 +76,9 @@ const MovieDetails = ({movie}) => {
           </li>
         ))}
       </Paper>
+      <Paper> 
+        Test
+      </Paper>
       <Fab    
         color="secondary"
         variant="extended"
