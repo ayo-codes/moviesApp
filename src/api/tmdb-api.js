@@ -178,6 +178,23 @@ export const getCastImages = ({ queryKey }) => {
     throw error
  });
 };
+
+export const getPersonDetails = ({ queryKey }) => {
+  const [, idPart] = queryKey;
+  const { person_id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/person/${person_id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then( (response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+
+  })
+  .catch((error) => {
+    throw error
+ });
+};
 // Async example
 // export const getMovies = async () => {
 //   const res = await fetch(

@@ -43,7 +43,7 @@ const MovieDetailsPage = (props) => {
    );
 
    console.log(getMovieQuery);
-   let movie = getMovieQuery.data
+   const movie = getMovieQuery.data
 
   if (getMovieQuery.isLoading) {
     return <Spinner />;
