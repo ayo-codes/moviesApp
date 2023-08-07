@@ -27,6 +27,7 @@ function MovieListPageTemplate(props){
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [voteAverageFilter , setVoteAverageFilter] = useState(0);
 
   const genreId = Number(genreFilter);
 
@@ -34,11 +35,18 @@ function MovieListPageTemplate(props){
     return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
   }).filter((m) => {
     return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+  }).filter((m) => {
+    return m.vote_average >= voteAverageFilter
   });
 
 const handleChange = (type, value) => {
-  if (type === "title") setTitleFilter(value);
-  else setGenreFilter(value);
+  if (type === "title") {
+    setTitleFilter(value);
+  } else if (type === "genre") {
+    setGenreFilter(value);
+  } else {
+    setVoteAverageFilter(value);
+  }
 };
 
 return (
@@ -72,6 +80,7 @@ return (
          onUserInput={handleChange}
          titleFilter={titleFilter}
          genreFilter={genreFilter}
+         voteAverageFilter={voteAverageFilter}
        />
      </Drawer>
    </>  
