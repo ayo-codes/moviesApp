@@ -38,7 +38,6 @@ const FantasyMovieForm = (props) => {
   };
 
 
-
   const onSubmit = (fantasyMovie) => {
     console.log ("submitted")
     fantasyMovie.id = uuidv4();
@@ -135,7 +134,7 @@ const FantasyMovieForm = (props) => {
             </TextField>
           )}
         />
-        
+
         <Box sx={styles.buttons}>
           <Button
             type="submit"
