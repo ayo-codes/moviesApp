@@ -21,8 +21,10 @@ const AddFantasyMoviePage = (props) => {
     return <h1>{getGenreQuery.error.message}</h1>;
   }
 
+  
+  
   return (
-    <FantasyMovieForm />
+    <FantasyMovieForm genres={getGenreQuery.data} />
   )
 }
 
