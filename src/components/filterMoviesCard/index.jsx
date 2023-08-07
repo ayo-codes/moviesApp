@@ -81,6 +81,14 @@ const styles = {
   },
 };
 
+const sortOptions = [
+  {
+    sortId: 1,
+    name: "Alphabetical",
+  },
+  { sortId: 2, name: "Ratings" },
+];
+
 export default function FilterMoviesCard(props) {
   console.log(props);
 
@@ -125,9 +133,9 @@ export default function FilterMoviesCard(props) {
   };
 
   const handleVoteChange = (e) => {
-    console.log(e.target.value)
-    handleChange (e, "vote_average" , e.target.value)
-  }; 
+    console.log(e.target.value);
+    handleChange(e, "vote_average", e.target.value);
+  };
 
   return (
     <>
@@ -186,6 +194,23 @@ export default function FilterMoviesCard(props) {
             <SortIcon fontSize="large" />
             Sort the movies.
           </Typography>
+          <FormControl sx={styles.formControl}>
+            <InputLabel id="sort-label">Sort Options</InputLabel>
+            <Select
+              labelId="sort-label"
+              id="sort-select"
+              value={props.genreFilter}
+              onChange={handleGenreChange}
+            >
+              {sortOptions.map((sort) => {
+                return (
+                  <MenuItem key={sort.sortId} value={sort.sortId}>
+                    {sort.name}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </FormControl>
         </CardContent>
       </Card>
     </>
