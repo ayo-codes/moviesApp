@@ -12,6 +12,59 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+import Slider  from "@mui/material/Slider";
+
+const marks = [
+  {
+    value: 0,
+    label: '0',
+  },
+  {
+    value: 1,
+    label: '1',
+  },
+  {
+    value: 2,
+    label: '2',
+  },
+  {
+    value: 3,
+    label: '3',
+  },
+  {
+    value: 4,
+    label: '4',
+  },
+  {
+    value: 5,
+    label: '5',
+  },
+  {
+    value: 6,
+    label: '6',
+  },
+  {
+    value: 7,
+    label: '7',
+  },
+  {
+    value: 8,
+    label: '8',
+  },
+  {
+    value: 9,
+    label: '9',
+  },
+  {
+    value: 10,
+    label: '10',
+  },
+];
+
+function valuetext(value){
+  return `${value}`;
+}
+
 
 const styles = {
   root: {
@@ -24,9 +77,13 @@ const styles = {
     minWidth: 220,
     backgroundColor: "rgb(255, 255, 255)",
   },
+  slider:{
+    margin:2,
+  }
 };
 
 export default function FilterMoviesCard(props) {
+  console.log(props)
 
   // -- start -- added for caching 
   const { data, error, isLoading, isError } = useQuery("genres", getGenres);
@@ -102,6 +159,18 @@ const handleGenreChange = e => {
             })}
           </Select>
         </FormControl>
+        
+        <InputLabel sx={styles.slider} id="vote-average-label">Vote Average</InputLabel>
+        <Slider
+        aria-label="vote average"
+        defaultValue={5}
+        getAriaValueText={valuetext}
+        step={0.1}
+        valueLabelDisplay="auto"
+        marks={marks}
+        min={0}
+        max={10}
+        ></Slider>
       </CardContent>
     </Card>
     <Card sx={styles.root} variant="outlined">
