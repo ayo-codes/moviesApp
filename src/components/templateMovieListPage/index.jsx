@@ -28,6 +28,7 @@ function MovieListPageTemplate(props){
   const [genreFilter, setGenreFilter] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [voteAverageFilter , setVoteAverageFilter] = useState(0);
+  const [sortOption , setsortOption] = useState(0);
 
   const genreId = Number(genreFilter);
 
@@ -37,6 +38,41 @@ function MovieListPageTemplate(props){
     return genreId > 0 ? m.genre_ids.includes(genreId) : true;
   }).filter((m) => {
     return m.vote_average >= voteAverageFilter
+  }).sort(function (a,b) {
+    if(sortOption === 1){
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    } else if (sortOption === 2){
+      if (a.title < b.title) {
+        return 1;
+      }
+      if (a.title > b.title) {
+        return -1;
+      }
+      return 0;      
+    } else if (sortOption === 3){
+      if (a.vote_average < b.vote_average) {
+        return -1;
+      }
+      if (a.vote_average > b.vote_average) {
+        return 1;
+      }
+      return 0;      
+    } else if (sortOption === 4){
+      if (a.vote_average < b.vote_average) {
+        return 1;
+      }
+      if (a.vote_average > b.vote_average) {
+        return -1;
+      }
+      return 0;      
+    }
+
   });
 
 const handleChange = (type, value) => {
@@ -44,6 +80,8 @@ const handleChange = (type, value) => {
     setTitleFilter(value);
   } else if (type === "genre") {
     setGenreFilter(value);
+  } else if (type === "sort_option") {  
+    setsortOption(value);
   } else {
     setVoteAverageFilter(value);
   }
@@ -81,6 +119,8 @@ return (
          titleFilter={titleFilter}
          genreFilter={genreFilter}
          voteAverageFilter={voteAverageFilter}
+         sortOption={sortOption}
+
        />
      </Drawer>
    </>  

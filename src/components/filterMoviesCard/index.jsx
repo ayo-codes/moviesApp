@@ -83,10 +83,22 @@ const styles = {
 
 const sortOptions = [
   {
-    sortId: 1,
-    name: "Alphabetical",
+    sortId: 0,
+    name: "No Sort",
   },
-  { sortId: 2, name: "Ratings" },
+  {
+    sortId: 1,
+    name: "Alphabetical (A - Z)",
+  },
+  {
+    sortId: 2,
+    name: "Alphabetical (Z - A)",
+  },
+  { sortId: 3, name: "Ratings (0 - 10)" },
+  {
+    sortId: 4,
+    name: "Ratings (10 - 0)",
+  },
 ];
 
 export default function FilterMoviesCard(props) {
@@ -135,6 +147,11 @@ export default function FilterMoviesCard(props) {
   const handleVoteChange = (e) => {
     console.log(e.target.value);
     handleChange(e, "vote_average", e.target.value);
+  };
+
+  const handlesortOptionChange = (e) => {
+    console.log(e.target.value);
+    handleChange(e, "sort_option", e.target.value);
   };
 
   return (
@@ -199,8 +216,8 @@ export default function FilterMoviesCard(props) {
             <Select
               labelId="sort-label"
               id="sort-select"
-              value={props.genreFilter}
-              onChange={handleGenreChange}
+              value={props.sortOption}
+              onChange={handlesortOptionChange}
             >
               {sortOptions.map((sort) => {
                 return (
