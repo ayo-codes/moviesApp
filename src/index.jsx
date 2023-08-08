@@ -15,7 +15,7 @@ import PlaylistMoviesPage from "./pages/myPlaylistMoviesPage";
 import { createTheme, ThemeProvider } from "@mui/material";
 import CastDetailsPage from "./pages/castDetailsPage";
 import AddFantasyMoviePage from "./pages/addFantasyMoviePage";
-import { FantasyMovie } from "./pages/fantasyMoviePage";
+import FantasyMoviePage  from "./pages/fantasyMoviePage";
 
 
 const theme = createTheme({
@@ -48,7 +48,7 @@ const App = () => {
                 <Routes>
                   <Route path="/reviews/form" element={<AddMovieReviewPage/>} />  
                   <Route path="/fantasymovie/add" element={<AddFantasyMoviePage/>} /> 
-                  <Route path="/fantasymovie/:id" element={<FantasyMovie/>} />
+                  <Route path="/fantasymovie/:id" element={<FantasyMoviePage/>} />
                   <Route path="/movies/favourites" element={<FavouriteMoviesPage/>} />
                   <Route path="/movies/playlists" element={<PlaylistMoviesPage/>} />
                   <Route path="/movies/upcoming" element={<UpcomingPage/>} />

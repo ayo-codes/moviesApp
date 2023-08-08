@@ -12,7 +12,6 @@ import { v4 as uuidv4 } from "uuid";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Stack from '@mui/material/Stack';
 import { InputAdornment } from "@mui/material";
 import productionCompanies from "./productioncompanies";
 import FantasyMovieList from "../fantasyMovieList";
@@ -27,7 +26,7 @@ const FantasyMovieForm = (props) => {
     title: "",
     overview: "",
     agree: false,
-    genre: 28,
+    genre: "",
   };
 
   const {
@@ -38,7 +37,7 @@ const FantasyMovieForm = (props) => {
   } = useForm(defaultValues);
   const navigate = useNavigate();
   const context = useContext(MoviesContext);
-  const [genre, setGenre] = useState(28);
+  const [genre, setGenre] = useState("");
   const [date , setDate]=useState(null);
   const [productioncompany , setProductionCompany]=useState("")
 
@@ -140,7 +139,7 @@ const FantasyMovieForm = (props) => {
               helperText="Don't forget your Genre"
             >
               {genres.map((genre) => (
-                <MenuItem key={genre.id} value={genre.id}>
+                <MenuItem key={genre.id} value={ genre.name }>
                   {genre.name}
                 </MenuItem>
               ))}

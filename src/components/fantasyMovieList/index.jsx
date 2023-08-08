@@ -21,6 +21,8 @@ const styles = {
 export default function FantasyMovieList({ movie }) {
   const { myFantasyMovies } = useContext(MoviesContext);
 
+  
+
   return (
     <>
       {myFantasyMovies.length != 0 ? (

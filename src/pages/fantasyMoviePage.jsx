@@ -1,5 +1,8 @@
 import React from 'react';
+import FantasyMovie  from '../components/fantasyMovie';
 
-export const FantasyMovie = () => {
-
-}
+export  default function FantasyMoviePage  () {
+  return (
+    <FantasyMovie />
+  )
+};
