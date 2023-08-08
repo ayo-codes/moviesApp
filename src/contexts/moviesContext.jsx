@@ -58,6 +58,7 @@ const MoviesContextProvider = (props) => {
         addToPlaylists,
         myPlaylistMovies,
         addFantasyMovie,
+        myFantasyMovies
       }}>
         {props.children}
     </MoviesContext.Provider>

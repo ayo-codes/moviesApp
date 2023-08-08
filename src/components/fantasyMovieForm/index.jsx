@@ -15,6 +15,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Stack from '@mui/material/Stack';
 import { InputAdornment } from "@mui/material";
 import productionCompanies from "./productioncompanies";
+import FantasyMovieList from "../fantasyMovieList";
 
 
 
@@ -247,7 +248,7 @@ const FantasyMovieForm = (props) => {
 
 
 
-    {/*  */}
+     <FantasyMovieList />
     </Box>
 
     
