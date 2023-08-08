@@ -13,15 +13,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Stack from '@mui/material/Stack';
+import { InputAdornment } from "@mui/material";
+import productionCompanies from "./productioncompanies";
 
 
 
 
 const FantasyMovieForm = (props) => {
   const genres = props.genres.genres;
-  // console.log(typeof(genres[0].id))
-
-  // console.log(props);
 
   const defaultValues = {
     title: "",
@@ -40,17 +39,22 @@ const FantasyMovieForm = (props) => {
   const context = useContext(MoviesContext);
   const [genre, setGenre] = useState(28);
   const [date , setDate]=useState(null);
+  const [productioncompany , setProductionCompany]=useState("")
 
   const handleGenreChange = (event) => {
     setGenre(event.target.value);
   };
 
+  const handleProdCompChange = (event) => {
+    setProductionCompany(event.target.value);
+  };
 
   const onSubmit = (fantasyMovie) => {
     console.log ("submitted")
     fantasyMovie.id = uuidv4();
     fantasyMovie.genre = genre;
     fantasyMovie.datepicker = date.$d;
+    fantasyMovie.productioncompany = productioncompany ;
     context.addFantasyMovie(fantasyMovie);
     reset({
       title: "",
@@ -160,8 +164,58 @@ const FantasyMovieForm = (props) => {
         </LocalizationProvider>      
           )}
         />
-
-
+<br/>
+<Controller
+          name="runtime"
+          control={control}
+          rules={{ required: "Runtime is required" }}
+          defaultValue=""
+          render={({ field: { onChange, value } }) => (
+            <TextField
+              sx={{ width: "40ch" }}
+              type='number'
+              variant="outlined"
+              InputProps={{
+                endAdornment: <InputAdornment position="end">mins</InputAdornment>,
+              }}
+              margin="normal"
+              required
+              onChange={onChange}
+              value={value}
+              id="runtime"
+              label="Movie Runtime"
+              autoFocus
+            />
+          )}
+        />
+        {errors.runtime && (
+          <Typography variant="h6" component="p">
+            {errors.runtime.message}
+          </Typography>
+        )}
+        <br/>
+<Controller
+          control={control}
+          name="productioncompany"
+          render={({ field: { onChange, value } }) => (
+            <TextField
+            sx={styles.datePicker}
+              id="select-productioncompany"
+              select
+              variant="outlined"
+              label="Production Company Select"
+              value={productioncompany}
+              onChange={handleProdCompChange}
+              helperText="Don't forget your Production Company"
+            >
+              {productionCompanies.map((option) => (
+                <MenuItem key={option.id} value={option.name}>
+                  {option.name}
+                </MenuItem>
+              ))}
+            </TextField>
+          )}
+        />
         <Box sx={styles.buttons}>
           <Button
             type="submit"

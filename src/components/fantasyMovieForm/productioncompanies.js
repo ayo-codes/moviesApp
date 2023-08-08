@@ -1,0 +1,32 @@
+const productionCompanies = [
+  {"id":1,"name":"Lucasfilm Ltd."},
+{"id":2,"name":"Walt Disney Pictures"},
+{"id":3,"name":"Pixar"},
+{"id":4,"name":"Paramount"},
+{"id":5,"name":"Columbia Pictures"},
+{"id":6,"name":"RKO Radio Pictures"},
+{"id":7,"name":"DreamWorks Pictures"},
+{"id":8,"name":"Fine Line Features"},
+{"id":9,"name":"Gaumont"},
+{"id":10,"name":"Highlight"},
+{"id":11,"name":"WingNut Films"},
+{"id":12,"name":"New Line Cinema"},
+{"id":14,"name":"Miramax"},
+{"id":15,"name":"Lama Films"},
+{"id":16,"name":"United King Films"},
+{"id":17,"name":"Warner Bros. Entertainment"},
+{"id":18,"name":"Gracie Films"},
+{"id":19,"name":"Film Roman"},
+{"id":20,"name":"Rough Draft Studios"},
+{"id":21,"name":"Metro-Goldwyn-Mayer"},
+{"id":22,"name":"Alejandro González Iñárritu"},
+{"id":23,"name":"Imagine Entertainment"},
+{"id":24,"name":"Mikona Productions GmbH & Co. KG"},
+{"id":25,"name":"20th Century Fox"},
+{"id":26,"name":"Agustin Almodovar"},
+{"id":28,"name":"Newmarket Films"},
+{"id":29,"name":"Topcraft"},
+{"id":30,"name":"Eddie Murphy Productions"}
+]
+
+export default productionCompanies

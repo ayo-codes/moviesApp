@@ -195,6 +195,11 @@ export const getPersonDetails = ({ queryKey }) => {
     throw error
  });
 };
+
+
+
+
+
 // Async example
 // export const getMovies = async () => {
 //   const res = await fetch(
