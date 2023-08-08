@@ -66,7 +66,7 @@ const FantasyMovieForm = (props) => {
 
 
   return (
-    <Box component="div" sx={styles.root}>
+    <Box component="div" sx={styles.root2}>
       <Typography component="h2" variant="h3">
         Create your own Fantasy Movie
       </Typography>
