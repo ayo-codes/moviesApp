@@ -17,6 +17,10 @@ const styles =  {
   submit: {
     marginRight: 2,
   },
+  datePicker: {
+    marginTop:2,
+    marginBottom:2,
+  },
   snack: {
     width: "50%",
     "& > * ": {

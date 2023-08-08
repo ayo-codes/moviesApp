@@ -9,6 +9,13 @@ import { MoviesContext } from "../../contexts/moviesContext";
 import { useNavigate } from "react-router-dom";
 import styles from "../reviewForm/styles";
 import { v4 as uuidv4 } from "uuid";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Stack from '@mui/material/Stack';
+
+
+
 
 const FantasyMovieForm = (props) => {
   const genres = props.genres.genres;
@@ -32,6 +39,7 @@ const FantasyMovieForm = (props) => {
   const navigate = useNavigate();
   const context = useContext(MoviesContext);
   const [genre, setGenre] = useState(28);
+  const [date , setDate]=useState(null);
 
   const handleGenreChange = (event) => {
     setGenre(event.target.value);
@@ -42,6 +50,7 @@ const FantasyMovieForm = (props) => {
     console.log ("submitted")
     fantasyMovie.id = uuidv4();
     fantasyMovie.genre = genre;
+    fantasyMovie.datepicker = date.$d;
     context.addFantasyMovie(fantasyMovie);
     reset({
       title: "",
@@ -50,9 +59,8 @@ const FantasyMovieForm = (props) => {
 
   };
 
-  // const onSubmit = () => {
-  //   console.log("submitted");
-  // };
+
+
   return (
     <Box component="div" sx={styles.root}>
       <Typography component="h2" variant="h3">
@@ -135,6 +143,25 @@ const FantasyMovieForm = (props) => {
           )}
         />
 
+<br/>
+
+<Controller
+          control={control}
+          name="datepicker"
+          render={({ field: { onChange, value } }) => (
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+          sx={styles.datePicker}
+          label="Select date"
+          value={date}
+          onChange={(newDate) => setDate(newDate)}
+          renderInput={(props) => <TextField {...props} />}
+          />
+        </LocalizationProvider>      
+          )}
+        />
+
+
         <Box sx={styles.buttons}>
           <Button
             type="submit"
@@ -163,7 +190,13 @@ const FantasyMovieForm = (props) => {
           </Button>
         </Box>
       </form>
+
+
+
+    {/*  */}
     </Box>
+
+    
   );
 };
 
