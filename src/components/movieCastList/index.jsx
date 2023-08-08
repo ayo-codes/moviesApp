@@ -32,7 +32,7 @@ function MovieCastList(props) {
         <Typography>
           {moviecast.cast.map((cast) => (
             <Link to={`/cast/${cast.id}`}>
-              <li align="center" key={cast.id}>
+              <li key={cast.id} align="center" >
                 {cast.name} as '{cast.character}'
               </li>
             </Link>

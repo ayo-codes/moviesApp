@@ -11,7 +11,8 @@ import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
 import MovieCastList from "../movieCastList";
-
+import { Link }  from "react-router-dom";
+import  Button  from "@mui/material/Button";
 const styles = {
   chipSet: {
     display: "flex",
@@ -80,6 +81,14 @@ const MovieDetails = ({ movie, moviecast }) => {
             <Chip label={p.name} />
           </li>
         ))}
+      </Paper>
+      <Paper align="center">
+      <Link to={`/movies/similar/${movie.id}`} state={{movieName: movie.title}}>
+        
+          <Button variant="outlined" size="medium" color="primary">
+           Find Similar Movies
+          </Button>
+      </Link>    
       </Paper>
       <MovieCastList moviecast={moviecast} />
       <Fab
