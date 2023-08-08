@@ -1,6 +1,8 @@
-export const getMovies = () => {
+export const getMovies = (args) => {
+  const [, idPart] = args.queryKey
+  const { pageNumber } = idPart;
   return fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${pageNumber}`
   )
   .then((res) => {
     if (!res.ok) {
@@ -31,7 +33,6 @@ export const getMovies = () => {
 //  -- end old getMovie pre-caching
 
 export const getMovie = (args) => {
-   console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(

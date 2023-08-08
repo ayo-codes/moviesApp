@@ -6,6 +6,7 @@ import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieList from "../movieList";
 
+
 const styles = {
   root: {
     padding: "20px",
