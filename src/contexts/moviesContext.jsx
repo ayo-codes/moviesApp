@@ -48,6 +48,9 @@ const MoviesContextProvider = (props) => {
     // console.log(myPlaylistMovies);
   };
 
+  const removeFromPlaylists = (movie) => {
+    setMyPlaylistMovies(myPlaylistMovies.filter((mId) => mId !== movie.id));
+  };
   return (
     <MoviesContext.Provider 
       value = {{
@@ -56,6 +59,7 @@ const MoviesContextProvider = (props) => {
         removeFromFavourites,
         addReview,
         addToPlaylists,
+        removeFromPlaylists,
         myPlaylistMovies,
         addFantasyMovie,
         myFantasyMovies
