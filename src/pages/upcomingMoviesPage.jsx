@@ -6,14 +6,18 @@ import  PlaylistAdd  from "@mui/icons-material/PlaylistAdd";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToPlaylistIcon from "../components/cardIcons/addToPlaylists";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack"
 
 
 const UpcomingPage = (props) => {
-  console.log(props)
+  
   // const [movies , setMovies] = useState([]); // sets the movies state and also setter method for movies
   // console.log(movies)
 
-  const { data, error, isLoading, isError } = useQuery("upcoming", getUpcomingMovies); 
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const { data, error, isLoading, isError } = useQuery(["upcoming", {pageNumber: pageNumber}], getUpcomingMovies); 
   if (isLoading) { 
     return <Spinner />;
   }
@@ -22,6 +26,11 @@ const UpcomingPage = (props) => {
   }
 
   const movies = data ? data.results : [];
+
+    const handlePageChange = (e) => {
+    let pageInteger = Number(e.target.innerText);
+    setPageNumber(pageInteger);
+  };
 
   //-- start removed due to favourites changing
   // const favourites = movies.filter(m => m.favourite);
@@ -48,16 +57,28 @@ const UpcomingPage = (props) => {
   //-- end removed use to useQuery
 
   return (
-    <PageTemplate 
-    title= 'Upcoming Movies'
-    movies={movies}
-    action={(movie) => 
-      {  
-        // this is a render prop added 
-      return <AddToPlaylistIcon movie={movie}/> 
-    }}
-    // selectFavourite={addToFavourites}
-     />
+  
+    <>
+      <PageTemplate 
+      title= 'Upcoming Movies'
+      movies={movies}
+      action={(movie) => 
+        {  
+          // this is a render prop added 
+        return <AddToPlaylistIcon movie={movie}/> 
+      }}
+      // selectFavourite={addToFavourites}
+      />
+      
+      <Stack alignItems={'center'} sx={{margin:10 }}>
+        <Pagination
+          color="primary"
+          count={data.total_pages}
+          onChange={handlePageChange}
+          page={pageNumber}
+        />
+      </Stack>
+    </>  
   );
 };
 

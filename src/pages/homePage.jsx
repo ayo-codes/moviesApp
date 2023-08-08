@@ -4,7 +4,7 @@ import { getMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
-import Box from "@mui/material/Box";
+
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack"
 
@@ -26,8 +26,6 @@ const HomePage = (props) => {
     return <h1>{error.message}</h1>;
   }
 
-  console.log(data.total_pages);
-  console.log(data.total_results);
 
   const movies = data ? data.results : [];
 
