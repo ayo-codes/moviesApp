@@ -12,6 +12,8 @@ __Name:__ Ayodele Onamusi
 + Remove movie from Playlist Button and Functionality
 + Cast of a Movie on Movie Details Page
 + Cast/Actor Page
++ Additional Filtering and Sorting Options
++ Fantasy Movie Page
 
 ## Feature Design.
 
@@ -47,6 +49,35 @@ e.g.
 > using parameterised routes, Actor's Bio pages can be accessed from the movie page with a brief bio and also images of the actor 
 
 ![][myimage5]
+
+#### Additional Filtering and Sorting Options 
+
+> Using a slider bar , User can filter a list of movies based on the Vote average that movie received so far from tmdb
+
+![][myimage6]
+
+> Users can Sort a list of movies alphabetically using a dropdown menu
+
+![][myimage7]
+
+> Users can Sort a list of movies in reverse alphabetically using a dropdown menu
+
+![][myimage8]
+
+> Users can Sort a list of movies in ascending order of vote average ratings using a dropdown menu
+
+![][myimage9]
+
+> Users can Sort a list of movies in descending order of vote average ratings using a dropdown menu
+
+![][myimage10]
+
+#### Fantasy Movie 
+
+> Created a form that the user can fill in to allow them fill in details of a fantasy movie they have. Users can fill in the movie title , movie overview , genres ( gotten from the tmdb API), date , and production company (gotten from the tmdb website) 
+
+![][myimage11]
+
 
 #### Upcoming Movies.
 
@@ -117,7 +148,13 @@ Username: test1 ; Password: pass1
 [myimage2]: ./images/myimage2.png
 [myimage3]: ./images/myimage3.png
 [myimage4]: ./images/myimage4.png
-[myimage5]: ./images/myimage4.png
+[myimage5]: ./images/myimage5.png
+[myimage6]: ./images/myimage6.png
+[myimage7]: ./images/myimage7.png
+[myimage8]: ./images/myimage8.png
+[myimage9]: ./images/myimage9.png
+[myimage10]: ./images/myimage10.png
+[myimage11]: ./images/myimage11.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
