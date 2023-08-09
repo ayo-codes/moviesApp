@@ -235,10 +235,14 @@ export const searchMulti = (args) => {
 };
 
 export const searchMultiDiscover = (args) => {
-  const [, idPart] = args.queryKey
-  const { pageNumber } = idPart;
+  const [ , yearPart , withCastPart , voteAverageGtePart , voteAverageLtePart ] = args.queryKey
+  console.log(args.queryKey)
+  const { year } = yearPart;
+  const { withCast } = withCastPart;
+  const { voteAverageGte } = voteAverageGtePart;
+  const { voteAverageLte } = voteAverageLtePart; 
   return fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${pageNumber}&vote_average.gte=${voteAverageGte}&vote_average.lte=${voteAverageLte}&year=${year}&with_cast=${withCast}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1&vote_average.gte=${voteAverageGte}&vote_average.lte=${voteAverageLte}&year=${year}&with_cast=${withCast}`
   )
   .then((res) => {
     if (!res.ok) {

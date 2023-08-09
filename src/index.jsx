@@ -21,6 +21,7 @@ import AuthContextProvider from "./contexts/authContext";
 import LoginPage from "./pages/loginSignupMoviePage";
 import ProtectedRoute from "./auth/protectedRoute";
 import MultiSearchPage from "./pages/multiSearchPage";
+import MovieSearchResultsPage from "./pages/movieSearchResultsPage";
 
 const theme = createTheme({
   typography: {
@@ -53,6 +54,7 @@ const App = () => {
               <Routes>
                 <Route path="/reviews/form" element={<AddMovieReviewPage />} />
                 <Route path="/multisearch" element={<MultiSearchPage/>} />
+                <Route path="/movies/searchresults" element={<MovieSearchResultsPage/>} />
                 <Route
                   path="/fantasymovie/add"
                   element={<AddFantasyMoviePage />}
