@@ -190,6 +190,10 @@ Username: bart@simpson.com ; Password: secret
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
+uuid() to manage content without ids.
+For production companies used a json file rather than end point
+
+
 
 
 
