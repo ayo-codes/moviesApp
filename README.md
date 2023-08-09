@@ -160,9 +160,20 @@ e.g.
 
 [ Briefly state any app functionality that requires authentication, e.g. only authenticated users can tag a movie as a 'favourite'.]
 
+- only authenticated users can access the filter movies functionality
+
 #### Supabase (if relevant)
 
 [Include a screenshot(s) from your Supabase account that verifies its use for this app. ]
+
+Authentication done using supabase
+
+![][myimage21]
+
+![][myimage22]
+
+
+
 
 ## Deployment (if relevant).
 
@@ -199,6 +210,8 @@ Username: test1 ; Password: pass1
 [myimage18]: ./images/myimage18.png
 [myimage19]: ./images/myimage19.png
 [myimage20]: ./images/myimage20.png
+[myimage21]: ./images/myimage21.png
+[myimage22]: ./images/myimage22.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
