@@ -16,7 +16,8 @@ __Name:__ Ayodele Onamusi
 [ For each feature listed above, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include a caption with each image.]
 
 e.g. 
-## Playlist-added icon
+#### Playlist-added icon
+
 ![][myimage1]
 
 #### Upcoming Movies.
