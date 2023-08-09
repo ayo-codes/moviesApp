@@ -10,7 +10,8 @@ __Name:__ Ayodele Onamusi
 + Playlist-added icon in the Movie Card Header when selected
 + Playlist Page for Playlist Movies
 + Remove movie from Playlist Button and Functionality
-+ etc.
++ Cast of a Movie on Movie Details Page
++ Cast/Actor Page
 
 ## Feature Design.
 
@@ -35,6 +36,17 @@ e.g.
 
 ![][myimage3]
 
+#### Cast of Movies added to Movie Page
+
+> Button and functionality to remove a movie from playlist
+
+![][myimage4]
+
+#### Cast/Actor Page
+
+> using parameterised routes, Actor's Bio pages can be accessed from the movie page with a brief bio and also images of the actor 
+
+![][myimage5]
 
 #### Upcoming Movies.
 
@@ -104,6 +116,8 @@ Username: test1 ; Password: pass1
 [myimage1]: ./images/myimage1.png
 [myimage2]: ./images/myimage2.png
 [myimage3]: ./images/myimage3.png
+[myimage4]: ./images/myimage4.png
+[myimage5]: ./images/myimage4.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
