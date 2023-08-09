@@ -19,7 +19,7 @@ import FantasyMoviePage from "./pages/fantasyMoviePage";
 import SimilarMoviesPage from "./pages/similarMoviesPage";
 import AuthContextProvider from "./contexts/authContext";
 import LoginPage from "./pages/loginSignupMoviePage";
-import ProtectedRoute from "./protectedRoute";
+import ProtectedRoute from "./auth/protectedRoute";
 
 const theme = createTheme({
   typography: {

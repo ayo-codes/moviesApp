@@ -5,6 +5,8 @@ import Grid from "@mui/material/Grid";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieList from "../movieList";
+import AuthContextProvider from "../../contexts/authContext";
+import ProtectedRoute from "../../auth/protectedRoute";
 
 
 const styles = {
@@ -115,14 +117,15 @@ return (
        open={drawerOpen}
        onClose={() => setDrawerOpen(false)}
      >
-       <FilterCard
-         onUserInput={handleChange}
-         titleFilter={titleFilter}
-         genreFilter={genreFilter}
-         voteAverageFilter={voteAverageFilter}
-         sortOption={sortOption}
-
-       />
+      <ProtectedRoute>
+        <FilterCard
+          onUserInput={handleChange}
+          titleFilter={titleFilter}
+          genreFilter={genreFilter}
+          voteAverageFilter={voteAverageFilter}
+          sortOption={sortOption}          
+        />
+      </ProtectedRoute>
      </Drawer>
    </>  
  );
