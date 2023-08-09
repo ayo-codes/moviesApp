@@ -85,7 +85,7 @@ Username: test1 ; Password: pass1
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
-[myimage1]: .images/myimage1.png
+[myimage1]: ./images/myimage1.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
