@@ -13,7 +13,10 @@ __Name:__ Ayodele Onamusi
 + Cast of a Movie on Movie Details Page
 + Cast/Actor Page
 + Additional Filtering and Sorting Options
-+ Fantasy Movie Page
++ Fantasy Movie Form / List and Page
++ Similar Movies
++ Pagination of List Views from the tmdb endpoints
++ Multi-part search
 
 ## Feature Design.
 
@@ -82,28 +85,33 @@ e.g.
 
 ![][myimage12]
 
->User can see the details of their fantasy movie on a dedicated page (parameterised route uses the id generated from uuid )
+> User can see the details of their fantasy movie on a dedicated page (parameterised route uses the id generated from uuid )
 
 ![][myimage13]
 
+#### Similar Movies 
 
-#### Upcoming Movies.
+> using the tmdb endpoint for similar movies, I added a button that the user can click to similar movies to the movie they just viewed. The header of the list also gives the name of the movie they came from 
 
-> Lists movies from the Upcoming movies endpoint of TMDB.
+![][myimage14]
 
-![][image1]
+#### Pagination
 
-#### Movies Reviews.
+> pagination at the bottom of the pages of list views of requests from tmdb website, like the homepage or upcoming movies page
 
-> Lists all the reviews for a particular movie (shows text extract only).
+![][myimage15]
 
-![][image2]
+#### Multi Search
 
-> Click the 'Full Review' link of a review extract to see the review's full text. 
+> using the parameters available to us from the tmdb endpoint, users can narrow down their search by either using the year, vote ratings range or cast member. The results are displayed on a separate page 
 
-![][image3]
+![][myimage16]
 
-.... other features .......
+> multi search results page 
+
+![][myimage17]
+
+
 
 ## Storybook.
 
@@ -111,7 +119,11 @@ e.g.
 
 e.g.
 
-![][image5]
+![][image18]
+
+![][image19]
+
+![][image20]
 
 ## Authentication. (if relevant)
 
@@ -165,6 +177,13 @@ Username: test1 ; Password: pass1
 [myimage11]: ./images/myimage11.png
 [myimage12]: ./images/myimage12.png
 [myimage13]: ./images/myimage13.png
+[myimage14]: ./images/myimage14.png
+[myimage15]: ./images/myimage15.png
+[myimage16]: ./images/myimage16.png
+[myimage17]: ./images/myimage17.png
+[myimage18]: ./images/myimage18.png
+[myimage19]: ./images/myimage19.png
+[myimage20]: ./images/myimage20.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
