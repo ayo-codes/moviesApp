@@ -28,13 +28,18 @@ const SiteHeader = () => {
   const open = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-  const { token , signout } =useContext(AuthContext);
+  const { token , signout , user } =useContext(AuthContext);
+
+  console.log(user);
 
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Favorites", path: "/movies/favourites" },
     { label: "Playlists", path: "/movies/playlists" },
+    { label: "Search", path: "/multisearch" },
+    { label: "Fantasy Movie", path: "/fantasymovie/add" },
+
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -53,8 +58,19 @@ const SiteHeader = () => {
             AyoFlixs-TMDB
           </Typography>
           <Typography variant="h6" sx={styles.title}>
-            All you ever wanted to know about Movies and TV!
+            All you ever wanted to know about Movies!
           </Typography>
+          <>
+          {
+            token ? (
+              <Typography variant="h6" sx={styles.title}>
+              {user.email}
+            </Typography>
+            ) : ( null
+
+            )
+          }
+          </>
           {isMobile ? (
             <>
               <IconButton

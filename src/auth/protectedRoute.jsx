@@ -4,6 +4,7 @@ import { AuthContext } from '../contexts/authContext';
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useContext(AuthContext);
+  console.log(token)
   const location = useLocation();
   console.log(location)
   if(!token) {
