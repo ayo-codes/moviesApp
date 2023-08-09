@@ -20,6 +20,7 @@ import SimilarMoviesPage from "./pages/similarMoviesPage";
 import AuthContextProvider from "./contexts/authContext";
 import LoginPage from "./pages/loginSignupMoviePage";
 import ProtectedRoute from "./auth/protectedRoute";
+import MultiSearchPage from "./pages/multiSearchPage";
 
 const theme = createTheme({
   typography: {
@@ -51,6 +52,7 @@ const App = () => {
             <MoviesContextProvider>
               <Routes>
                 <Route path="/reviews/form" element={<AddMovieReviewPage />} />
+                <Route path="/multisearch" element={<MultiSearchPage/>} />
                 <Route
                   path="/fantasymovie/add"
                   element={<AddFantasyMoviePage />}

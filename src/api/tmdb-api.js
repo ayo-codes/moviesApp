@@ -218,6 +218,37 @@ export const getSimilarMovies = (args) => {
 };
 
 
+export const searchMulti = (args) => {
+  const [, idPart] = args.queryKey
+  const { pageNumber } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_TMDB_KEY}&query=${query}&language=en-US&include_adult=false&include_video=false&page=${pageNumber}`
+  )
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error (res.json().message);
+    } return console.log(res) || res.json();
+  })
+  .catch((error) => {
+    throw error
+  }); 
+};
+
+export const searchMultiDiscover = (args) => {
+  const [, idPart] = args.queryKey
+  const { pageNumber } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${pageNumber}&vote_average.gte=${voteAverageGte}&vote_average.lte=${voteAverageLte}&year=${year}&with_cast=${withCast}`
+  )
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error (res.json().message);
+    } return console.log(res) || res.json();
+  })
+  .catch((error) => {
+    throw error
+  }); 
+};
 
 // Async example
 // export const getMovies = async () => {
