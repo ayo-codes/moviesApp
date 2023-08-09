@@ -138,8 +138,23 @@ e.g.
 + /reviews/{review_id} (Protected) - The full text of a movie review.
 + /movie/{movie_id}/similar - A list of similar movies. 
 + /person/{person_id} (Protected) - A specific actor's bio.
-+ etc
-+ etc
++ /reviews/form - Form for adding a review to a movie
++ /success - page user sees after the log in or log out
++ /multisearch (protected) - page for searching discover endpoint parameters 
++ /movies/searchresults (protected) - page for results of the multi search 
++ /fantasymovie/add (protected) - page to add a fantasy movie
++ /fantasymovie/:id (protected) - page to view the details of a fantasy movie
++ /movies/favourites (protected) - page to view your list of favourite movies 
++ /movies/playlists (protected) - page for user to see their own movie playlist
++ /movies/upcoming - list of movies from the upcoming endpoint
++ /movies/similar/:id - list of movies similar to the movieid passed in the parameter
++ /movies/:id - shows the movie with the id passed as id from tmdb
++ /reviews/:id - for a specific review full text
++ /login - page to login as a user 
++ /cast/:id - show information for a specific cast member/ actor
++ / - home page
+
+
 
 #### Protected functionality. (if relevant)
 
