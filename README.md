@@ -133,11 +133,6 @@ e.g.
 
 e.g.
 
-+ /movies - List of 20  movies from the Discover endpoint,
-+ /movies/{movie_id} - Detailed information on a specific movie.
-+ /reviews/{review_id} (Protected) - The full text of a movie review.
-+ /movie/{movie_id}/similar - A list of similar movies. 
-+ /person/{person_id} (Protected) - A specific actor's bio.
 + /reviews/form - Form for adding a review to a movie
 + /success - page user sees after the log in or log out
 + /multisearch (protected) - page for searching discover endpoint parameters 
@@ -179,8 +174,13 @@ Authentication done using supabase
 
 [Specify the URL of your deployed app and include a screenshot(s) from your deployment platform account (e.g. Vercal) that verifies its use for this app. Set up a registered user for your app and specify their credentials.
 
-Username: test1 ; Password: pass1
-]
+
+
+url : ayoflix.netlify.app
+Username: bart@simpson.com ; Password: secret
+
+![][myimage23]
+
 
 ## Persistence (if relevant).
 
@@ -189,6 +189,9 @@ Username: test1 ; Password: pass1
 ## Additional Information.
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
+
+
+
 
 [myimage1]: ./images/myimage1.png
 [myimage2]: ./images/myimage2.png
@@ -212,8 +215,4 @@ Username: test1 ; Password: pass1
 [myimage20]: ./images/myimage20.png
 [myimage21]: ./images/myimage21.png
 [myimage22]: ./images/myimage22.png
-[image1]: ./images/image1.png
-[image2]: ./images/image2.png
-[image3]: ./images/image3.png
-[image4]: ./images/image4.png
-[image5]: ./images/image5.png
+[myimage23]: ./images/myimage23.png
