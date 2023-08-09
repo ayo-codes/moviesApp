@@ -1,13 +1,13 @@
 
 # Full Stack Development 2 - Assignment.
 
-__Name:__ [your full name]
+__Name:__ Ayodele Onamusi
 
 ## Features.
 
 [A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
 
-+ Feature X.
++ Playlist-added icon in the Movie Card Header when selected
 + Feature Y. 
 + etc.
 
@@ -16,6 +16,8 @@ __Name:__ [your full name]
 [ For each feature listed above, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include a caption with each image.]
 
 e.g. 
+## Playlist-added icon
+![][myimage1]
 
 #### Upcoming Movies.
 
@@ -82,6 +84,7 @@ Username: test1 ; Password: pass1
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
+[myimage1]: .images/myimage1.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
