@@ -119,11 +119,11 @@ e.g.
 
 e.g.
 
-![][image18]
+![][myimage18]
 
-![][image19]
+![][myimage19]
 
-![][image20]
+![][myimage20]
 
 ## Authentication. (if relevant)
 
