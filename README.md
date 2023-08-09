@@ -40,7 +40,7 @@ e.g.
 
 #### Cast of Movies added to Movie Page
 
-> Button and functionality to remove a movie from playlist
+> The cast of a movie is now visible on the movie page along with the role they played in the movie
 
 ![][myimage4]
 
@@ -74,9 +74,17 @@ e.g.
 
 #### Fantasy Movie 
 
-> Created a form that the user can fill in to allow them fill in details of a fantasy movie they have. Users can fill in the movie title , movie overview , genres ( gotten from the tmdb API), date , and production company (gotten from the tmdb website) 
+> Created a form that the user can fill in to allow them fill in details of a fantasy movie they have. Users can fill in the movie title , movie overview , genres ( gotten from the tmdb API), date , and production company (gotten from the tmdb website). Id of the movie is generated using uuid().
 
 ![][myimage11]
+
+> User can see their list of fantasy movies in a table on the page 
+
+![][myimage12]
+
+>User can see the details of their fantasy movie on a dedicated page (parameterised route uses the id generated from uuid )
+
+![][myimage13]
 
 
 #### Upcoming Movies.
@@ -155,6 +163,8 @@ Username: test1 ; Password: pass1
 [myimage9]: ./images/myimage9.png
 [myimage10]: ./images/myimage10.png
 [myimage11]: ./images/myimage11.png
+[myimage12]: ./images/myimage12.png
+[myimage13]: ./images/myimage13.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
