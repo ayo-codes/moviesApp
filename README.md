@@ -8,7 +8,8 @@ __Name:__ Ayodele Onamusi
 [A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
 
 + Playlist-added icon in the Movie Card Header when selected
-+ Feature Y. 
++ Playlist Page for Playlist Movies
++ Remove movie from Playlist Button and Functionality
 + etc.
 
 ## Feature Design.
@@ -16,9 +17,24 @@ __Name:__ Ayodele Onamusi
 [ For each feature listed above, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include a caption with each image.]
 
 e.g. 
-#### Playlist-added icon
+#### Playlist-added icon to movie card
+
+> Shows playlist icon selected on movie cards when selected
 
 ![][myimage1]
+
+#### Playlist page 
+
+> Playlist page shows the user the list of movies in their playlist/ watchlist 
+
+![][myimage2]
+
+#### Remove Movie from playlist
+
+> Button and functionality to remove a movie from playlist
+
+![][myimage3]
+
 
 #### Upcoming Movies.
 
@@ -86,6 +102,8 @@ Username: test1 ; Password: pass1
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
 [myimage1]: ./images/myimage1.png
+[myimage2]: ./images/myimage2.png
+[myimage3]: ./images/myimage3.png
 [image1]: ./images/image1.png
 [image2]: ./images/image2.png
 [image3]: ./images/image3.png
